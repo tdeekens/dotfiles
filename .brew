@@ -13,7 +13,12 @@ brew install findutils
 brew install bash
 brew install ack
 brew install git
-brew install rename
 brew install tree
+
+brew install node
+brew install git-ftp
+brew install autojump
+brew install curl
+brew install php54
 
 brew cleanup && brew prune
