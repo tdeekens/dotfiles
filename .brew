@@ -1,0 +1,19 @@
+#!/bin/bash
+
+brew update && brew upgrade
+
+echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
+
+brew tap homebrew/dupes
+brew tap josegonzalez/homebrew-php
+
+brew install coreutils
+brew install wget --enable-iri
+brew install findutils
+brew install bash
+brew install ack
+brew install git
+brew install rename
+brew install tree
+
+brew cleanup && brew prune

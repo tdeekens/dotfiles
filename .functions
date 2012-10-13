@@ -1,0 +1,23 @@
+# Create a new directory and enter it
+function md() {
+	mkdir -p "$@" && cd "$@"
+}
+
+# find shorthand
+function f() {
+    find . -name "$1"
+}
+
+
+# lets toss an image onto my server and pbcopy that bitch.
+function scpp() {
+    scp "$1" aurgasm@aurgasm.us:~/paulirish.com/i;
+    echo "http://paulirish.com/i/$1" | pbcopy;
+    echo "Copied to clipboard: http://paulirish.com/i/$1"
+}
+
+# take this repo and copy it to somewhere else minus the .git stuff.
+function gitexport(){
+	mkdir -p "$1"
+	git archive master | tar -x -C "$1"
+}
