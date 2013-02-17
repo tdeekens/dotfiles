@@ -29,7 +29,7 @@ ZSH_THEME="af-magic"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew autojump)
+plugins=(git brew autojump osx umsicht)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -39,3 +39,5 @@ done
 
 unset file
 unset MAILCHECK
+
+[[ -f `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh

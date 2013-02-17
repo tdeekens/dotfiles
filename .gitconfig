@@ -28,17 +28,25 @@
 [repack]
 	usedeltabaseoffset = true # >git 1.5
 [alias]
-	s = status
+	s = status -sb
 	a = !git add . && git status
 	au = !git add -u . && git status
 	aa = !git add . && git add -u . && git status
 	c = commit
 	cm = commit -m
-	ca = commit --amend # careful
 	ac = !git add . && git commit
 	acm = !git add . && git commit -m
-	l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	aacm = !git add . && git add -u && git commit -m
+	pom = !git push origin master
+	amend = commit --amend -C HEAD
+	undo = reset --soft HEAD
+	l = log --graph --all --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	ll = log --stat --abbrev-commit
 	d = diff --color-words
 	dh = diff --color-words head
+	undo-push = !git push -f origin HEAD^:master
 	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+[push]
+	default = current
+[credential]
+	helper = osxkeychain
