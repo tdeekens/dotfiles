@@ -9,7 +9,7 @@
 	attributesfile = ~/.gitattributes
 	whitespace = fix,space-before-tab,tab-in-indent,trailing-space
 [apply]
-	whitespace = fix	
+	whitespace = fix
 [color "branch"]
 	current = yellow reverse
 	local = yellow
@@ -25,6 +25,7 @@
 	untracked = cyan
 [merge]
 	log = true
+	tool = Kaleidoscope
 [repack]
 	usedeltabaseoffset = true # >git 1.5
 [alias]
@@ -37,16 +38,29 @@
 	ac = !git add . && git commit
 	acm = !git add . && git commit -m
 	aacm = !git add . && git add -u && git commit -m
-	pom = !git push origin master
+	up-om = !git push origin master
+   dn-om = !git pull origin master
 	amend = commit --amend -C HEAD
 	undo = reset --soft HEAD
 	l = log --graph --all --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	ll = log --stat --abbrev-commit
 	d = diff --color-words
 	dh = diff --color-words head
+   dn-sub = !git pull "$@" && git submodule update --init --recursive
 	undo-push = !git push -f origin HEAD^:master
 	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 [push]
 	default = current
 [credential]
 	helper = osxkeychain
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
