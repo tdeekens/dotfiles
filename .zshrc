@@ -33,7 +33,7 @@ plugins=(git brew autojump osx umsicht)
 
 source $ZSH/oh-my-zsh.sh
 
-for file in ~/.{bash_prompt,exports,aliases,functions}; do
+for file in ~/.{.bash_profile,bash_prompt,exports,aliases,functions}; do
 	[ -r "$file" ] && source "$file"
 done
 
@@ -41,3 +41,4 @@ unset file
 unset MAILCHECK
 
 [[ -f `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
