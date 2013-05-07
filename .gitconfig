@@ -1,6 +1,9 @@
 [user]
 	name = Tobias Deekens
 	email = tobias.deekens@gmail.com
+[github]
+	name = Tobias Deekens
+	email = tobias.deekens@gmail.com
 [core]
 	legacyheaders = false # >git 1.5
 	quotepath = false
@@ -10,6 +13,8 @@
 	whitespace = fix,space-before-tab,tab-in-indent,trailing-space
 [apply]
 	whitespace = fix
+[color]
+	ui = auto
 [color "branch"]
 	current = yellow reverse
 	local = yellow
@@ -42,6 +47,7 @@
    dn-om = !git pull origin master
 	amend = commit --amend -C HEAD
 	undo = reset --soft HEAD
+	cc = !git log --pretty=format:'' | wc -l
 	l = log --graph --all --pretty=format:'%C(yellow)%H%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	ll = log --stat --abbrev-commit
 	d = diff --color-words
@@ -49,8 +55,14 @@
    dn-sub = !git pull "$@" && git submodule update --init --recursive
 	undo-push = !git push -f origin HEAD^:master
 	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
-[push]
-	default = current
+[diff "word"]
+	textconv = strings
+[diff "pdf"]
+        textconv = pdf2txt
+[diff "plist"]
+        textconv = strings
+[diff "odf"]
+	textconv = odt2txt
 [credential]
 	helper = osxkeychain
 [difftool "Kaleidoscope"]
