@@ -43,8 +43,8 @@
 	ac = !git add . && git commit
 	acm = !git add . && git commit -m
 	aacm = !git add . && git add -u && git commit -m
-	up-om = !git push origin master
-   dn-om = !git pull origin master
+	ps = !git push
+   pl = !git pull
 	amend = commit --amend -C HEAD
 	undo = reset --soft HEAD
 	cc = !git log --pretty=format:'' | wc -l
@@ -58,9 +58,9 @@
 [diff "word"]
 	textconv = strings
 [diff "pdf"]
-        textconv = pdf2txt
+   textconv = pdf2txt
 [diff "plist"]
-        textconv = strings
+   textconv = strings
 [diff "odf"]
 	textconv = odt2txt
 [credential]
@@ -77,4 +77,4 @@
 [mergetool]
 	prompt = false
 [push]
-	default = simple
+	default = upstream
