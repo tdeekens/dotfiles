@@ -33,6 +33,10 @@ alias whois="whois -h whois-servers.net"
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
 
+# Change the mac-address
+alias ordinary_mac="sudo ifconfig en1 ether 60:33:4b:11:a9:f4"
+alias random_mac="sudo ifconfig en1 ether openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'"
+
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
