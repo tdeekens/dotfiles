@@ -14,9 +14,11 @@ brew install bash
 brew install ack
 brew install git
 brew install tree
-
+brew install htop-osx
+brew install sloc
 brew install node
 brew install git-ftp
+brew install git-extras
 brew install autojump
 brew install curl
 brew install php54
