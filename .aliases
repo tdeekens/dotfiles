@@ -55,14 +55,11 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias drop-up="rsync -avz --copy-dirlinks --delete --progress --stats -e ssh /Volumes/HDD/Drop/ --exclude='*.git' um.root:/www/htdocs/v634306/drop/tdeekens"
 alias drop-down="rsync -avz --keep-dirlinks --progress --stats -e ssh um.root:/www/htdocs/v634306/drop/tdeekens/ /Volumes/HDD/Drop"
 
-# Open Github-Site
-alias github="chrome \`git remote -v | grep github.com | grep fetch | head -1 | field 2 | sed 's/git:/http:/g'\`"
-
 # Xcode shortcuts
 alias openxc="open *.xcodeproj"
 alias openxcw="open *.xcworkspace"
 
-#Make dir and cd into it
+# Make dir and cd into it
 function mcd() {
   mkdir -p "$1" && cd "$1";
 }
@@ -90,7 +87,7 @@ extract () {
 }
 
 # Forgot to sudo or shortcut it
-s(){
+s() {
     if [[ $# == 0 ]]; then
         sudo $(history -p '!!')
     else
