@@ -48,7 +48,7 @@
    amend = commit --amend -C HEAD
    undo = reset --soft HEAD
    cc = !git log --pretty=format:'' | wc -l
-   l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+   l = !git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit | less
    ll = log --stat --abbrev-commit
    d = diff --color-words
    dh = diff --color-words head
