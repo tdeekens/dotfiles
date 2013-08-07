@@ -29,7 +29,8 @@ ZSH_THEME="tdeekens"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew autojump osx umsicht pod rvm terminalapp gem composer)
+
+plugins=(git brew autojump osx umsicht pod rvm terminalapp gem composer tmux tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -46,3 +47,5 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+source $GEM_HOME/gems/tmuxinator-0.6.4/completion/tmuxinator.zsh
