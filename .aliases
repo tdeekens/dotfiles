@@ -51,10 +51,6 @@ alias fs="stat -f \"%z bytes\""
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
-# Push/Pull from own 'Dropbox' via rsync and ssh
-alias drop-up="rsync -avz --copy-dirlinks --delete --progress --stats -e ssh /Volumes/HDD/Drop/ --exclude='*.git' um.root:/www/htdocs/v634306/drop/tdeekens"
-alias drop-down="rsync -avz --keep-dirlinks --progress --stats -e ssh um.root:/www/htdocs/v634306/drop/tdeekens/ /Volumes/HDD/Drop"
-
 # Xcode shortcuts
 alias openxc="open *.xcodeproj"
 alias openxcw="open *.xcworkspace"
