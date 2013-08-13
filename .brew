@@ -24,3 +24,5 @@ brew install curl
 brew install php54
 
 brew cleanup && brew prune
+
+sudo easy_install pygments
