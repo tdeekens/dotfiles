@@ -54,7 +54,7 @@
    dh = diff --color-words head
    dn-sub = !git pull "$@" && git submodule update --init --recursive
    undo-push = !git push -f origin HEAD^:master
-   normalize-eof = !git rm --cached -r . && git reset --hard && git add . && git commit -m "Normalize line endings."
+   normalize-eof = !git rm --cached -r . && git reset --hard && git add . && git commit
    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 [diff "word"]
    textconv = strings
