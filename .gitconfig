@@ -1,9 +1,9 @@
 [user]
 	name = Tobias Deekens
-	email = tobias.deekens@gmail.com
+	email = nerd@tdeekens.name
 [github]
    name = Tobias Deekens
-   email = tobias.deekens@gmail.com
+   email = nerd@tdeekens.name
 [core]
    legacyheaders = false # >git 1.5
    quotepath = false
