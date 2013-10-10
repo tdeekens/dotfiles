@@ -44,6 +44,7 @@
    acm = !git add --update && git commit -m
    aacm = !git add --all && git commit -m
    ps = !git push
+   ps-all = !git push --recurse-submodules=on-demand
    pl = !git pull
    amend = commit --amend -C HEAD
    undo = reset --soft HEAD
