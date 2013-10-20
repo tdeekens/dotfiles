@@ -30,7 +30,7 @@ ZSH_THEME="tdeekens"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(git brew autojump osx umsicht pod rvm terminalapp gem composer tmux tmuxinator)
+plugins=(git brew autojump osx umsicht pod rvm terminalapp gem composer)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,3 +49,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 source $GEM_HOME/gems/tmuxinator-0.6.4/completion/tmuxinator.zsh
+# added by travis gem
+source /Users/tdeekens/.travis/travis.sh
+
+eval "$(hub alias -s)"

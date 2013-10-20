@@ -13,10 +13,11 @@ export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export RVM_PATH=~/.rvm/bin
 export RVM_GEM_PATH=$GEM_HOME/bin:$GEM_PATH@global/bin
+export CABAL_PATH=$HOME/.cabal/bin
 export NPM_PATH=/usr/local/share/npm/bin
 export BIN_PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin
 
-export PATH=$RVM_GEM_PATH:$RVM_PATH:$BIN_PATH:$NPM_PATH
+export PATH=$RVM_GEM_PATH:$RVM_PATH:$BIN_PATH:$NPM_PATH:$CABAL_PATH
 
 export ZSH=~/.oh-my-zsh
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home"
