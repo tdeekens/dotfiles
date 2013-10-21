@@ -53,4 +53,3 @@ source $GEM_HOME/gems/tmuxinator-0.6.4/completion/tmuxinator.zsh
 source /Users/tdeekens/.travis/travis.sh
 
 eval "$(hub alias -s)"
-eval "$(phpenv init -)"
