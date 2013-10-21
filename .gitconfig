@@ -1,6 +1,6 @@
 [user]
-	name = Tobias Deekens
-	email = nerd@tdeekens.name
+   name = Tobias Deekens
+   email = nerd@tdeekens.name
 [github]
    name = Tobias Deekens
    email = nerd@tdeekens.name
@@ -11,7 +11,7 @@
    excludesfile = ~/.gitignore
    attributesfile = ~/.gitattributes
    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
-	autocrlf = input
+   autocrlf = input
 [apply]
    whitespace = fix
 [color]
@@ -72,6 +72,7 @@
    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
    tool = Kaleidoscope
+   algorithm = patience
 [difftool]
    prompt = false
 [mergetool "Kaleidoscope"]
@@ -79,6 +80,6 @@
    trustExitCode = true
 [mergetool]
    prompt = false
-	keepBackup = false
+   keepBackup = false
 [push]
    default = upstream
