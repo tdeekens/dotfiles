@@ -12,7 +12,7 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="$FG[075])%{$reset_color%}"
 
 # primary prompt
 #PROMPT='$FG[237]------------------------------------------------------------%{$reset_color%}
-PROMPT='%{$FG[237]%}%D{[%H:%M]}%{$fg[cyan]%}%p %c$(git_prompt_info) %{$fg_bold[cyan]%}%(!.#.»)%{$reset_color%} '
+PROMPT='%{$FG[245]%}!%!%  %{$FG[237]%}%D{[%H:%M]}%{$fg[cyan]%}%p %c$(git_prompt_info) %{$fg_bold[cyan]%}%(!.#.»)%{$reset_color%} '
 
 RPS1='${return_code}'
 

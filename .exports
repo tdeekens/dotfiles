@@ -20,6 +20,6 @@ export BIN_PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin
 export PATH=$RVM_GEM_PATH:$RVM_PATH:$BIN_PATH:$NPM_PATH:$CABAL_PATH
 
 export ZSH=$HOME/.oh-my-zsh
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home"
+export JAVA_HOME="/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function

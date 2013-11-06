@@ -48,8 +48,5 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-source $GEM_HOME/gems/tmuxinator-0.6.4/completion/tmuxinator.zsh
 # added by travis gem
 source /Users/tdeekens/.travis/travis.sh
-
-eval "$(hub alias -s)"
