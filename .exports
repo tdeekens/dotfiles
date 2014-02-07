@@ -16,8 +16,9 @@ export RVM_GEM_PATH=$GEM_HOME/bin:$GEM_PATH@global/bin
 export CABAL_PATH=$HOME/.cabal/bin
 export NPM_PATH=/usr/local/share/npm/bin
 export BIN_PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin
+export LATEX_PATH=/usr/texbin
 
-export PATH=$RVM_GEM_PATH:$RVM_PATH:$BIN_PATH:$NPM_PATH:$CABAL_PATH
+export PATH=$RVM_GEM_PATH:$RVM_PATH:$BIN_PATH:$NPM_PATH:$CABAL_PATH:$LATEX_PATH
 
 export ZSH=$HOME/.oh-my-zsh
 export JAVA_HOME="/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"

@@ -1,5 +1,6 @@
 # be nice
 alias please=sudo
+alias pls=please
 alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 alias phps='php -S 127.0.0.1:8000'
 
@@ -54,82 +55,3 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # Xcode shortcuts
 alias openxc="open *.xcodeproj"
 alias openxcw="open *.xcworkspace"
-
-# Make dir and cd into it
-function mcd() {
-  mkdir -p "$1" && cd "$1";
-}
-
-# Extract 'any' archive
-extract () {
-    if [ -f $1 ] ; then
-      case $1 in
-        *.tar.bz2)   tar xjf $1     ;;
-        *.tar.gz)    tar xzf $1     ;;
-        *.bz2)       bunzip2 $1     ;;
-        *.rar)       unrar e $1     ;;
-        *.gz)        gunzip $1      ;;
-        *.tar)       tar xf $1      ;;
-        *.tbz2)      tar xjf $1     ;;
-        *.tgz)       tar xzf $1     ;;
-        *.zip)       unzip $1       ;;
-        *.Z)         uncompress $1  ;;
-        *.7z)        7z x $1        ;;
-        *)     echo "'$1' cannot be extracted via extract()" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
-}
-
-# Forgot to sudo or shortcut it
-s() {
-    if [[ $# == 0 ]]; then
-        sudo $(history -p '!!')
-    else
-        sudo "$@"
-    fi
-}
-
-# clones a repository, cds into it, and opens it in my editor.
-# - arg 1 - url|username|repo remote endpoint, username on github, or name of
-#           repository.
-# - arg 2 - (optional) name of repo
-#
-# usage:
-#   $ clone things
-#     .. git clone git@github.com:stephenplusplus/things.git things
-#     .. cd things
-#     .. sublime .
-#
-#   $ clone git@github.com:stephenplusplus/dots.git
-#     .. git clone git@github.com:stephenplusplus/dots.git dots
-#     .. cd dots
-#     .. sublime .
-#
-#   $ clone yeoman generator
-#     .. git clone git@github.com:yeoman/generator.git generator
-#     .. cd generator
-#     .. sublime .
-function clone {
-  local url=$1;
-  local repo=$2;
-
-  if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]
-  then
-    # just clone this thing.
-    repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
-  elif [[ -z $repo ]]
-  then
-    # my own stuff.
-    repo=$url;
-    url="git@github.com:stephenplusplus/$repo";
-  else
-    # not my own, but I know whose it is.
-    url="git@github.com:$url/$repo.git";
-  fi
-
-  git clone $url $repo && cd $repo && sublime .;
-}
-
-pretty() { pygmentize -f terminal $* | less -R }

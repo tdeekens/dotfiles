@@ -8,16 +8,92 @@ function f() {
     find . -name "$1"
 }
 
-
-# lets toss an image onto my server and pbcopy that bitch.
-function scpp() {
-    scp "$1" aurgasm@aurgasm.us:~/paulirish.com/i;
-    echo "http://paulirish.com/i/$1" | pbcopy;
-    echo "Copied to clipboard: http://paulirish.com/i/$1"
-}
-
 # take this repo and copy it to somewhere else minus the .git stuff.
 function gitexport(){
 	mkdir -p "$1"
 	git archive master | tar -x -C "$1"
 }
+
+# Extract 'any' archive
+extract () {
+    if [ -f $1 ] ; then
+      case $1 in
+        *.tar.bz2)   tar xjf $1     ;;
+        *.tar.gz)    tar xzf $1     ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar e $1     ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xf $1      ;;
+        *.tbz2)      tar xjf $1     ;;
+        *.tgz)       tar xzf $1     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)     echo "'$1' cannot be extracted via extract()" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
+
+# Forgot to sudo or shortcut it
+s() {
+    if [[ $# == 0 ]]; then
+        sudo $(history -p '!!')
+    else
+        sudo "$@"
+    fi
+}
+
+# clones a repository, cds into it, and opens it in my editor.
+# - arg 1 - url|username|repo remote endpoint, username on github, or name of
+#           repository.
+# - arg 2 - (optional) name of repo
+#
+# usage:
+#   $ clone things
+#     .. git clone git@github.com:stephenplusplus/things.git things
+#     .. cd things
+#     .. sublime .
+#
+#   $ clone git@github.com:stephenplusplus/dots.git
+#     .. git clone git@github.com:stephenplusplus/dots.git dots
+#     .. cd dots
+#     .. sublime .
+#
+#   $ clone yeoman generator
+#     .. git clone git@github.com:yeoman/generator.git generator
+#     .. cd generator
+#     .. sublime .
+function clone {
+  local url=$1;
+  local repo=$2;
+
+  if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]
+  then
+    # just clone this thing.
+    repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
+  elif [[ -z $repo ]]
+  then
+    # my own stuff.
+    repo=$url;
+    url="git@github.com:stephenplusplus/$repo";
+  else
+    # not my own, but I know whose it is.
+    url="git@github.com:$url/$repo.git";
+  fi
+
+  git clone $url $repo && cd $repo && sublime .;
+}
+
+# Call as in github user repo
+github() {
+  git init
+  git add .
+  git commit -am "init"
+  git remote add origin git@github.com:$1/$2.git
+  curl -u 'USER' https://api.github.com/orgs/$1/repos -d "{\"name\":\"$2\"}"
+  git push -u origin master
+}
+
+pretty() { pygmentize -f terminal $* | less -R }
