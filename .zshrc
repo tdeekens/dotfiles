@@ -48,5 +48,8 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# Aliases hub to git cmd
+eval "$(hub alias -s)"
+
 # added by travis gem
 source /Users/tdeekens/.travis/travis.sh

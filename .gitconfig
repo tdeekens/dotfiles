@@ -57,7 +57,7 @@
    dn-sub = !git pull "$@" && git submodule update --init --recursive
    undo-push = !git push -f origin HEAD^:master
    normalize-eof = !git rm --cached -r . && git reset --hard && git add . && git commit
-   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+   aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 	today = log --since=midnight --author='Tobias Deekens' --oneline
    dn = !git clone --depth 1
 [diff "word"]
