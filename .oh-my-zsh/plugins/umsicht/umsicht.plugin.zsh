@@ -1,5 +1,5 @@
 function um() {
-   local action=$1; project=$2; project_path=~/Development/
+   local action=$1; project=$2; option=$3; project_path=~/Development/
 
    if [[ $action = "dev" ]]; then
       echo "Lade Projekt '$project' in den Dev-Bereich.";
@@ -8,6 +8,13 @@ function um() {
 
       aacm=$(git add --all && git commit -m "Automatic push to dev/pre");
       pom=$(git push origin master);
+   elif [[ $action = "pre" ]]; then
+      echo "Lade Projekt '$project' in den Pre-Bereich.";
+
+      cd "$project_path$project";
+
+      aacm=$(git add --all && git commit -m "Automatic push to dev/pre");
+      pom=$(git push origin preview && git push origin master);
    elif [[ $action = "push" ]]; then
       echo "Lade Projekt '$project' in den Dev-Bereich und pushe es.";
 
@@ -33,7 +40,7 @@ function um() {
 
       cd "$project_path$project";
 
-      aacm=$(git add --all git commit -m "Automatic init to dev/pre and production");
+      aacm=$(git add --all && git commit -m "Automatic init to dev/pre and production");
       pom=$(git push origin master);
       push=$(git-ftp init);
    elif [[ $action = "config" ]]; then
@@ -54,7 +61,29 @@ function um() {
          cd "$project_dir";
          pull=$(git pull origin master);
       done
+   elif [[ $action = "work" ]]; then
+      echo "Setze Projekt '$project' zur Arbeit an '$option' Version auf...";
+
+      cd "$project_path$project";
+
+      fa=$(git pull --all);
+
+      if ([ $option = "pre" ] || [ $option = "preview" ]); then
+         co=$(git checkout preview);
+      else
+         co=$(git checkout master);
+      fi
+   elif [[ $action = "reset" ]]; then
+      echo "Setze Projekt '$project' zurück!";
+
+      rm -rf "$project_path$project";
+
+      cd "$project_path";
+
+      clone=$(git clone ssh://um.dev/git/$project.git);
+   elif [[ $action = "browse" ]]; then
+      open "http://tdeekens.local/$project";
    else
-      echo "Befehl '$action' unbekannt. Bekannte Befehlt: dev, push, down oder update. Zum Beispiel: 'um push umsicht'";
+      echo "Befehl '$action' unbekannt. Bekannte Befehlt z.B.: dev, push, down oder update. Zum Beispiel: 'um push umsicht'";
    fi
 }

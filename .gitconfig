@@ -35,6 +35,7 @@
 [repack]
    usedeltabaseoffset = true # >git 1.5
 [alias]
+   aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
    s = status -sb
    a = !git add . && git status
    au = !git add -u . && git status
@@ -44,9 +45,11 @@
    acm = !git add --update && git commit -m
    aacm = !git add --all && git commit -m
    ps = !git push
+   ps-l = !git push && git ftp push
    ps-f = !git add --update && git amend && git ps --force
    ps-all = !git push --recurse-submodules=on-demand
    pl = !git pull
+   sync = !git pull && git push
    amend = commit --amend -C HEAD
    undo = reset --soft HEAD
    cc = !git log --pretty=format:'' | wc -l
@@ -57,7 +60,6 @@
    dn-sub = !git pull "$@" && git submodule update --init --recursive
    undo-push = !git push -f origin HEAD^:master
    normalize-eof = !git rm --cached -r . && git reset --hard && git add . && git commit
-   aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 	today = log --since=midnight --author='Tobias Deekens' --oneline
    dn = !git clone --depth 1
 [diff "word"]
