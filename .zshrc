@@ -30,7 +30,7 @@ ZSH_THEME="tdeekens"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(git brew autojump osx umsicht pod rvm terminalapp gem composer)
+plugins=(git brew autojump osx umsicht pod rvm terminalapp gem composer bower)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,9 +47,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-# Aliases hub to git cmd
-eval "$(hub alias -s)"
 
 # added by travis gem
 source /Users/tdeekens/.travis/travis.sh
