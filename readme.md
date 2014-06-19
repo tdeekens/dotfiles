@@ -8,7 +8,8 @@ Basically for personal backup reasons but obvisouly free to fork, copy, change '
 * Clone repository into ~
 * Edit .gitconfig-file (username, email)
 * cd into ~
-	* ./.brew
-	* ./.osx
+	* $ brew bundle ~/.Brewfile
+	* $ brew cask bundle ~/.Caskfile
+	* $ ./.osx
 * Edit .exports and whatever...
 * Enjoy and hope for the best
