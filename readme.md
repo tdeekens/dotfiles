@@ -5,11 +5,12 @@ Basically for personal backup reasons but obvisouly free to fork, copy, change '
 ## Installation
 
 * Install homebrew and oh-my-zsh
-* Clone repository into ~
+* Clone repository to places
+* Run `source bootstrap.sh`
 * Edit .gitconfig-file (username, email)
 * cd into ~
-	* $ brew bundle ~/.Brewfile
-	* $ brew cask bundle ~/.Caskfile
-	* $ ./.osx
+	* $ `brew bundle ~/.Brewfile`
+	* $ `brew cask bundle ~/.Caskfile`
+	* $ `./.osx`
 * Edit .exports and whatever...
 * Enjoy and hope for the best
