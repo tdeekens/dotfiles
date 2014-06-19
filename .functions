@@ -1,6 +1,6 @@
 # Create a new directory and enter it
-function md() {
-	mkdir -p "$@" && cd "$@"
+function mkd() {
+	mkdir -p "$@" && cd "$@";
 }
 
 # find shorthand
@@ -45,45 +45,13 @@ s() {
     fi
 }
 
-# clones a repository, cds into it, and opens it in my editor.
-# - arg 1 - url|username|repo remote endpoint, username on github, or name of
-#           repository.
-# - arg 2 - (optional) name of repo
-#
-# usage:
-#   $ clone things
-#     .. git clone git@github.com:stephenplusplus/things.git things
-#     .. cd things
-#     .. sublime .
-#
-#   $ clone git@github.com:stephenplusplus/dots.git
-#     .. git clone git@github.com:stephenplusplus/dots.git dots
-#     .. cd dots
-#     .. sublime .
-#
-#   $ clone yeoman generator
-#     .. git clone git@github.com:yeoman/generator.git generator
-#     .. cd generator
-#     .. sublime .
-function clone {
-  local url=$1;
-  local repo=$2;
-
-  if [[ ${url:0:4} == 'http' || ${url:0:3} == 'git' ]]
-  then
-    # just clone this thing.
-    repo=$(echo $url | awk -F/ '{print $NF}' | sed -e 's/.git$//');
-  elif [[ -z $repo ]]
-  then
-    # my own stuff.
-    repo=$url;
-    url="git@github.com:stephenplusplus/$repo";
-  else
-    # not my own, but I know whose it is.
-    url="git@github.com:$url/$repo.git";
-  fi
-
-  git clone $url $repo && cd $repo && sublime .;
+# Start a PHP server from a directory, optionally specifying the port
+# (Requires PHP 5.4.0+.)
+function phpserver() {
+	local port="${1:-4000}";
+	local ip=$(ipconfig getifaddr en1);
+	sleep 1 && open "http://${ip}:${port}/" &
+	php -S "${ip}:${port}";
 }
 
 # Call as in github user repo
