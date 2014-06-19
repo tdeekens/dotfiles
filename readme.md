@@ -10,7 +10,7 @@ Basically for personal backup reasons but obvisouly free to fork, copy, change '
 * Edit .gitconfig-file (username, email)
 * cd into ~
 	* $ `brew bundle ~/.Brewfile`
-	* $ `brew cask bundle ~/.Caskfile`
+	* $ `brew bundle ~/.Caskfile`
 	* $ `./.osx`
 * Edit .exports and whatever...
 * Enjoy and hope for the best
