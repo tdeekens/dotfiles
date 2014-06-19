@@ -60,8 +60,10 @@
    dn-sub = !git pull "$@" && git submodule update --init --recursive
    undo-push = !git push -f origin HEAD^:master
    normalize-eof = !git rm --cached -r . && git reset --hard && git add . && git commit
-	today = log --since=midnight --author='Tobias Deekens' --oneline
+   today = log --since=midnight --author='Tobias Deekens' --oneline
    dn = !git clone --depth 1
+   f-cm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+   r-mb = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
 [diff "word"]
    textconv = strings
 [diff "pdf"]
