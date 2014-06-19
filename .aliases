@@ -55,3 +55,12 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # Xcode shortcuts
 alias openxc="open *.xcodeproj"
 alias openxcw="open *.xcworkspace"
+
+# Merges pdfs using automator
+alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+
+# Lock things when going afk
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Fastens up npm for EU peoples
+command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu/"
