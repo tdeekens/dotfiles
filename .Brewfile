@@ -1,10 +1,9 @@
 update
 upgrade
 
-echo "Don’t forget to add $(--prefix coreutils)/libexec/gnubin to \$PATH."
-
 tap homebrew/dupes
-tap josegonzalez/homebrew-php
+tap homebrew/versions
+tap homebrew/homebrew-php
 
 install coreutils
 install wget --enable-iri
@@ -20,7 +19,7 @@ install git-ftp
 install git-extras
 install autojump
 install curl
-install homebrew/php/php55 --with-gmp
+install php55 --with-gmp
 
 cleanup
 
