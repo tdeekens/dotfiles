@@ -64,3 +64,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Fastens up npm for EU peoples
 command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu/"
+
+# Show | hide hidden files
+alias showhidden='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'alias hidehidden=“defaults write com.apple.finder AppleShowAllFiles FALSE”
+alias hidehidden='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
