@@ -14,7 +14,8 @@ function um() {
      cd "$project_path$project";
 
      aacm=$(git add --all && git commit -m "Automatic push to dev/pre");
-     pom=$(git push origin preview && git push origin master);
+     pompre=$(git push origin preview);
+     pomdev=$(git push origin master);
   elif [[ $action = "push" ]]; then
      echo "Loading project: '$project' into development area and pushing it live.";
 
@@ -37,7 +38,7 @@ function um() {
 
      cd "$project_path$project";
 
-     pull=$(git pull origin master);
+     pull=$(git pull origin);
 
      open_browser=$(open "http://localhost/$project");
      open_atom=$(atom .);
