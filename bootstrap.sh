@@ -19,6 +19,5 @@ else
 		doIt;
 	fi;
 fi;
-unset doIt;
 
-sudo easy_install pygments
+unset doIt;

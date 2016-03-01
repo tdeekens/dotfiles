@@ -1,13 +1,13 @@
 [user]
-   name = Tobias Deekens
+   name = suǝʞǝǝpʇ
    email = nerd@tdeekens.name
 [github]
-   name = Tobias Deekens
+   name = suǝʞǝǝpʇ
    email = nerd@tdeekens.name
 [core]
    legacyheaders = false # >git 1.5
    quotepath = false
-   pager = less -F -X
+	pager = bash -lc 'diff-highlight | ~/.diff-so-fancy | less -r'
    excludesfile = ~/.gitignore
    attributesfile = ~/.gitattributes
    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
@@ -25,6 +25,11 @@
    frag = magenta bold
    old = red bold
    new = green bold
+[color "diff-highlight"]
+   oldNormal = "red bold"
+	 oldHighlight = "red bold 52"
+   newNormal = "green bold"
+ 	 newHighlight = "green bold 22"
 [color "status"]
    added = yellow
    changed = green
@@ -49,18 +54,19 @@
    ps-f = !git add --update && git amend && git ps --force
    ps-all = !git push --recurse-submodules=on-demand
    pl = !git pull
+	 pl-s = !git stash && git pull --rebase && git stash pop
    sync = !git pull && git push
    amend = commit --amend -C HEAD
    undo = reset --soft HEAD
    cc = !git log --pretty=format:'' | wc -l
-   l = !git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all | less
+   l = !git log --graph --decorate --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all | less
    ll = log --stat --abbrev-commit
    d = diff --color-words
    dh = diff --color-words head
    dn-sub = !git pull "$@" && git submodule update --init --recursive
    undo-push = !git push -f origin HEAD^:master
    normalize-eof = !git rm --cached -r . && git reset --hard && git add . && git commit
-   today = log --since=midnight --author='Tobias Deekens' --oneline
+   today = log --since=midnight --author='tdeekens' --oneline
    dn = !git clone --depth 1
    f-cm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
    r-mb = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
@@ -86,6 +92,12 @@
    trustExitCode = true
 [mergetool]
    prompt = false
-   keepBackup = false
+	keepBackup = true
 [push]
    default = upstream
+[url "https://github.com/"]
+   insteadOf = git@github.com:
+[url "https://"]
+	insteadOf = git://
+[rebase]
+	autostash = true

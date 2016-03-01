@@ -30,23 +30,29 @@ ZSH_THEME="tdeekens"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(git brew autojump osx umsicht pod rvm terminalapp gem composer bower)
+plugins=(git brew autojump osx umsicht composer bower npm autojump nvm jira)
 
 source $ZSH/oh-my-zsh.sh
 
-for file in ~/.{.bash_profile,bash_prompt,exports,aliases,functions}; do
-	[ -r "$file" ] && source "$file"
+for file in ~/.{.bash_profile,bash_prompt,exports,aliases,functions,epost-functions}; do
+  [ -r "$file" ] && source "$file"
 done
 
 unset file
 unset MAILCHECK
 
-[[ -f `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+source ~/.oh-my-zsh/prompts/zsh-vcs-prompt/zshrc.sh
+ZSH_VCS_PROMPT_ENABLE_CACHING='true'
+RPROMPT='$(vcs_super_info)'
+
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # added by travis gem
-source /Users/tdeekens/.travis/travis.sh
+[ -f /Users/tdeekens/.travis/travis.sh ] && source /Users/tdeekens/.travis/travis.sh

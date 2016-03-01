@@ -14,13 +14,17 @@ install git
 install tree
 install htop-osx
 install sloc
-install node
-install git-ftp
+install nvm
 install git-extras
 install autojump
 install curl
-install php55 --with-gmp
+install php56 --with-gmp
+install docker
+install docker-compose
+install docker-machine
+install keybase
+install watch
+install httpie
 
 cleanup
-
 prune

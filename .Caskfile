@@ -10,5 +10,4 @@ cask install virtualbox 2> /dev/null
 cask install atom 2> /dev/null
 cask install cornerstone 2> /dev/null
 cask install dash 2> /dev/null
-cask install mplayer-osx-extended 2> /dev/null
-cask install owncloud 2> /dev/null
+cask install vlc 2> /dev/null

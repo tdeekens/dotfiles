@@ -65,3 +65,7 @@ github() {
 }
 
 pretty() { pygmentize -f terminal $* | less -R }
+
+killp() {
+	awk -v pname="$1" '($4==pname){print $1}' <(ps -e) | xargs kill
+}
