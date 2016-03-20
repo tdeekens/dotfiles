@@ -25,6 +25,7 @@ install docker-machine
 install keybase
 install watch
 install httpie
+install diff-so-fancy
 
 cleanup
 prune

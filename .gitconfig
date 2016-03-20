@@ -1,14 +1,10 @@
-[user]
-   name = suǝʞǝǝpʇ
-   email = nerd@tdeekens.name
 [github]
    name = suǝʞǝǝpʇ
    email = nerd@tdeekens.name
 [core]
    legacyheaders = false # >git 1.5
    quotepath = false
-	pager = bash -lc 'diff-highlight | ~/.diff-so-fancy | less -r'
-   excludesfile = ~/.gitignore
+	excludesfile = /Users/tdeekens/.gitignore
    attributesfile = ~/.gitattributes
    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
    autocrlf = input
@@ -26,10 +22,10 @@
    old = red bold
    new = green bold
 [color "diff-highlight"]
-   oldNormal = "red bold"
-	 oldHighlight = "red bold 52"
-   newNormal = "green bold"
- 	 newHighlight = "green bold 22"
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 [color "status"]
    added = yellow
    changed = green
@@ -79,7 +75,7 @@
 [diff "odf"]
    textconv = odt2txt
 [credential]
-   helper = osxkeychain
+	helper = osxkeychain
 [difftool "Kaleidoscope"]
    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
@@ -101,3 +97,21 @@
 	insteadOf = git://
 [rebase]
 	autostash = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[pager]
+	diff = diff-so-fancy | less --tabs=4 -RFX
+	show = diff-so-fancy | less --tabs=4 -RFX
+[rerere]
+	enabled = true
+	autoupdate = true
+[status]
+	showUntrackedFiles = all
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.2.3/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

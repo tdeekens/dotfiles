@@ -8,6 +8,8 @@ cask install the-unarchiver 2> /dev/null
 cask install transmission 2> /dev/null
 cask install virtualbox 2> /dev/null
 cask install atom 2> /dev/null
+cask install atom-beta 2> /dev/null
 cask install cornerstone 2> /dev/null
 cask install dash 2> /dev/null
 cask install vlc 2> /dev/null
+cask install spectacle 2> /dev/null
