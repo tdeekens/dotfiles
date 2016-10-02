@@ -70,3 +70,11 @@ alias showhidden='defaults write com.apple.finder AppleShowAllFiles YES; killall
 alias hidehidden='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
 alias fuck='$(thefuck $(fc -ln -1))'
+
+alias less='less -m -N -g -i -J --line-numbers --underline-special'
+alias more='less'
+
+alias gpg='gpg1'
+
+# Use "highlight" in place of "cat"
+alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style zenburn"

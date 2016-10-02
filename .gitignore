@@ -8,3 +8,5 @@ Thumbs.db
 logs
 cgi-bin
 usage
+.npmrc
+.npm_cache
