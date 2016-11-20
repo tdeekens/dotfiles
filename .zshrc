@@ -5,7 +5,14 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="tdeekens"
+
+ZSH_THEME="purity"
+
+autoload -U promptinit && promptinit
+
+PURE_PROMPT_SYMBOL=»
+
+prompt purity
 
 # Example aliass
 # alias zshconfig="mate ~/.zshrc"
@@ -30,7 +37,7 @@ ZSH_THEME="tdeekens"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 
-plugins=(gitfast brew brew-cask thefuck autojump osx umsicht history-search-multi-word bower autojump nvm jira zsh-syntax-highlighting nvm-auto-use git-it-on)
+plugins=(sublime gitfast brew brew-cask thefuck autojump osx umsicht history-search-multi-word bower autojump nvm jira zsh-syntax-highlighting nvm-auto-use git-it-on)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,12 +49,6 @@ unset file
 unset MAILCHECK
 
 HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-source ~/.oh-my-zsh/prompts/zsh-vcs-prompt/zshrc.sh
-ZSH_VCS_PROMPT_ENABLE_CACHING='true'
-RPROMPT='$(vcs_super_info)'
-
-source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
@@ -64,6 +65,11 @@ if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
 else
   eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
 fi
+
+# OPAM configuration
+. /Users/tdeekens/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # OPAM configuration
 . /Users/tdeekens/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
