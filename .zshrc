@@ -55,7 +55,7 @@ HOMEBREW_CASK_OPTS="--appdir=/Applications"
 source ~/.nvm/nvm.sh
 
 # added by travis gem
-[ -f /Users/tdeekens/.travis/travis.sh ] && source /Users/tdeekens/.travis/travis.sh
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 eval "$(thefuck --alias)"
 
@@ -66,10 +66,7 @@ else
   eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
 fi
 
-# OPAM configuration
-. /Users/tdeekens/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # OPAM configuration
-. /Users/tdeekens/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+. ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
