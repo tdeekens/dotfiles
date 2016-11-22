@@ -7,3 +7,7 @@ brew bundle .Brewfile
 # Run Homebrew through the Caskfile
 echo "› brew bundle .Caskfile"
 brew bundle .Caskfile
+
+# Run setting up osx settings
+echo "› ./.osx"
+./.osx

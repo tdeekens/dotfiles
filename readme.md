@@ -2,15 +2,13 @@
 
 Basically for personal backup reasons but obvisouly free to fork, copy, change 'n stuff.
 
+## Concept
+
+Symlinks all files in this directory in the `boostrap.sh` into your home folder.
+
 ## Installation
 
 * Install homebrew and oh-my-zsh
 * Clone repository to places
-* Run `source bootstrap.sh`
-* Edit .gitconfig-file (username, email)
-* cd into ~
-	* $ `brew bundle ~/.Brewfile`
-	* $ `brew bundle ~/.Caskfile`
-	* $ `./.osx`
-* Edit .exports and whatever...
-* Enjoy and hope for the best
+* Run `sh install.sh`
+* Run `sh bootstrap.sh`
