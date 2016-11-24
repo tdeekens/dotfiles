@@ -1,25 +1,8 @@
 #!/usr/bin/env bash
 
 DOTFILES_ROOT=$(pwd -P)
-DOTFILES=(
-.aliases
-.bash_prompt
-.bashrc
-.curlrc
-.editorconfig
-.exports
-.functions
-.gitattributes
-.gitconfig
-.gitignore
-.inputrc
-.oh-my-zsh/plugins/umsicht/umsicht.plugin.zsh
-.oh-my-zsh/themes/tdeekens.zsh-theme
-.osx
-.vim/colors/hybrid.vim
-.vimrc
-.wgetrc
-.zshrc)
+DOTFILES=(.aliases .bash_prompt .bashrc .curlrc .editorconfig .exports .functions .gitattributes .gitconfig .gitignore .inputrc .oh-my-zsh/plugins/umsicht/umsicht.plugin.zsh .oh-my-zsh/themes/tdeekens.zsh-theme .osx .vim/colors/hybrid.vim .vimrc .wgetrc .zshrc .Brewfile .Caskfile)
+DOTFILES_ROOT=$(pwd -P)
 
 set -e
 
@@ -152,9 +135,10 @@ install_dotfiles () {
     success "backed up all in .dotfiles-$(date '+%y-%m-%d').tar.gz"
   fi
 
-  for src in $DOTFILES
+  for src in  "${DOTFILES[@]}"
   do
     dst="$HOME/$src"
+    src="$DOTFILES_ROOT/$src"
     link_file "$src" "$dst"
   done
 }
