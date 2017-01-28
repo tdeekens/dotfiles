@@ -11,8 +11,13 @@ export HISTCONTROL=ignoredups
 export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 export NODE_PATH=/usr/local/share/npm/lib/node_modules
+export NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
 export NPM_PATH=/usr/local/share/npm/bin
 export RBENV_PATH=~/.rbenv/shims
+export ZPLUG_HOME=/usr/local/opt/zplug
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 BIN_PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin
 
 export PATH=$RBENV_PATH:$BIN_PATH:$NPM_PATH
