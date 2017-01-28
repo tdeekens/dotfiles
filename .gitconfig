@@ -114,3 +114,6 @@
 	showUntrackedFiles = all
 [gpg]
 	program = /usr/local/bin/gpg1
+[user]
+	name = tdeekens
+	email = nerd@tdeekens.name
