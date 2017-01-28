@@ -1,0 +1,31 @@
+source $ZPLUG_HOME/init.zsh
+
+zplug "~/.oh-my-zsh/plugins", use:umsicht.plugin.zsh, from:local
+
+zplug mafredri/zsh-async, from:github
+zplug psprint/history-search-multi-word, from:github
+zplug lukechilds/zsh-nvm
+zplug marzocchi/zsh-notify
+
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+
+zplug plugins/sublime, from:oh-my-zsh
+zplug plugins/gitfast, from:oh-my-zsh
+zplug plugins/brew, from:oh-my-zsh
+zplug plugins/brew-cask, from:oh-my-zsh
+zplug plugins/thefuck, from:oh-my-zsh
+zplug plugins/autojump, from:oh-my-zsh
+zplug plugins/bower, from:oh-my-zsh
+zplug plugins/git-it-on, from:oh-my-zsh
+
+zplug zsh-users/zsh-syntax-highlighting
+zplug zsh-users/zsh-completions
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
