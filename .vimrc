@@ -3,7 +3,6 @@ set encoding=utf-8
 set hidden
 filetype plugin indent on
 au FileType gitcommit set tw=72
-syntax on
 set synmaxcol=2048                " Don't syntax highlight super-long lines (for performance)
 
 set autoindent                    " automatically indent lines and try to do it intelligently
@@ -30,8 +29,9 @@ set wrapscan                      " Set the search scan to wrap around the file
 
 nmap <silent> <Leader>/ :nohlsearch<CR>  " Clear the find buffer
 
-set background=dark
-colorscheme hybrid
+syntax enable
+set background=light
+colorscheme solarized
 
 set laststatus=2                  " always display a status line
 
