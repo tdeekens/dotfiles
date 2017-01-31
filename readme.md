@@ -1,4 +1,4 @@
-# A wild bunch of .dotfiles
+# 🔥 A wild bunch of .dotfiles 🦌
 
 Basically for personal backup reasons but obvisouly free to fork, copy, change 'n stuff.
 
