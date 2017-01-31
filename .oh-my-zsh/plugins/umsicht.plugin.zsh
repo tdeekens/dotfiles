@@ -1,5 +1,5 @@
 function um() {
-  local action=$1; project=$2; option=$3; project_path=~/Development/UmSicht/;
+  local action=$1; project=$2; option=$3; project_path=~/Sites/;
 
   if [[ $action = "dev" ]]; then
      echo "Loading project: '$project' into development area.";
@@ -31,7 +31,7 @@ function um() {
 
      clone=$(git clone ssh://um.dev/git/$project.git);
 
-     open_browser=$(open "http://localhost/UmSicht/$project");
+     open_browser=$(open "http://localhost/$project");
      open_atom=$(atom .);
   elif [[ $action = "update" ]]; then
      echo "Updating project: '$project' locally.";
@@ -110,7 +110,7 @@ function um() {
 
      checkout=$(git checkout -f);
   elif [[ $action = "browse" ]]; then
-     open "http://localhost/UmSicht/$project";
+     open "http://localhost/$project";
   else
      echo "Command '$action' unknown. Known commands e.g.: dev, push, down oder update. E.g.: 'um push umsicht'";
   fi
