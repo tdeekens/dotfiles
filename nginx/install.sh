@@ -20,6 +20,10 @@ ln -s nginx.conf /usr/local/etc/nginx/nginx.conf
 ln -s default /usr/local/etc/nginx/sites-available/default
 ln -s default-ssl /usr/local/etc/nginx/sites-available/default-ssl
 
+ln -s php-fqm /usr/local/etc/nginx/conf.d/php-fqm
+ln -s apache-deny /usr/local/etc/nginx/conf.d/apache-deny
+ln -s seo-url /usr/local/etc/nginx/conf.d/seo-url
+
 ln -sfv /usr/local/etc/nginx/sites-available/default /usr/local/etc/nginx/sites-enabled/default
 ln -sfv /usr/local/etc/nginx/sites-available/default-ssl /usr/local/etc/nginx/sites-enabled/default-ssl
 

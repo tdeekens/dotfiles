@@ -1,30 +1,41 @@
 server {
-    listen       443;
-    server_name  localhost;
-    root       /Users/tdeekens/Development;
+	listen 443 default_server;
+	listen [::]:443 default_server;
 
-    access_log  /Library/Logs/default-ssl.access.log  main;
+	server_name ~^(?<subdomain>([\w-]+\.)*)?(?<domain>[\w-]+\.[\w-]+)\.dev$;
+	set $rootdir "/Users/tdeekens/Sites/$domain";
 
-    ssl                  on;
-    ssl_certificate      ssl/localhost.crt;
-    ssl_certificate_key  ssl/localhost.key;
+	access_log /Library/Logs/default-ssl.access.log main;
 
-    ssl_session_timeout  5m;
+	if (-f "/Users/tdeekens/Sites/$subdomain.$domain") {
+		set $rootdir "/Users/tdeekens/Sites/$subdomain.$domain";
+	}
 
-    ssl_protocols  SSLv2 SSLv3 TLSv1;
-    ssl_ciphers  HIGH:!aNULL:!MD5;
-    ssl_prefer_server_ciphers   on;
+	root $rootdir;
 
-    location / {
-        include   /usr/local/etc/nginx/conf.d/php-fpm;
-    }
+	ssl on;
+	ssl_certificate ssl/localhost.crt;
+	ssl_certificate_key ssl/localhost.key;
 
-    location = /info {
-        allow   127.0.0.1;
-        deny    all;
-        rewrite (.*) /.info.php;
-    }
+	ssl_session_timeout 5m;
 
-    error_page  404     /404.html;
-    error_page  403     /403.html;
+	ssl_protocols SSLv2 SSLv3 TLSv1;
+	ssl_ciphers HIGH:!aNULL:!MD5;
+	ssl_prefer_server_ciphers on;
+
+	location / {
+      try_files $uri $uri/ /index.php;
+		include /usr/local/etc/nginx/conf.d/php-fpm;
+      include /usr/local/etc/nginx/conf.d/seo-url;
+		include /usr/local/etc/nginx/conf.d/apache-deny;
+	}
+
+	location = /info {
+		allow 127.0.0.1;
+		deny all;
+		rewrite (.*) /info.php;
+	}
+
+	error_page 404 /404.html;
+	error_page 403 /403.html;
 }
