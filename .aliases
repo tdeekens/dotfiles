@@ -78,3 +78,5 @@ alias gpg='gpg1'
 
 # Use "highlight" in place of "cat"
 alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style zenburn"
+
+alias history='fc -il 1 | less'

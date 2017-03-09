@@ -111,6 +111,22 @@ function um() {
      checkout=$(git checkout -f);
   elif [[ $action = "browse" ]]; then
      open "http://localhost/$project";
+  elif [[ $action = "status" ]]; then
+     cd "$project_path$project";
+     echo "============= Letzte Änderung im dev/pre =============="
+     echo "# Änderung vom: "
+     git rev-list --format=format:'%cn %ci' --max-count=1 $(git rev-parse origin/HEAD)
+     echo "\n"
+     echo "# Betroffene Dateien: "
+     git show --no-pager --stat --oneline origin/HEAD
+     echo "\n"
+     SHA=$(curl --user $(git config git-ftp.user):$(git config git-ftp.password) -s ftp://$(git config git-ftp.url)/.git-ftp.log)
+     echo "============= Letzte Änderung auf Live =============="
+     echo "# Änderung vom: "
+     git rev-list --format=format:'%cn %ci' --max-count=1 $(git rev-parse $SHA)
+     echo "\n"
+     echo "# Betroffene Dateien: "
+     git show --no-pager --stat --oneline $SHA
   else
      echo "Command '$action' unknown. Known commands e.g.: dev, push, down oder update. E.g.: 'um push umsicht'";
   fi
