@@ -7,6 +7,7 @@ tap 'homebrew/homebrew-php'
 tap 'homebrew/services'
 tap 'caskroom/cask'
 tap 'caskroom/versions'
+tap 'ravenac95/sudolikeaboss'
 
 brew 'coreutils'
 brew 'wget', args: ['enable-iri']
@@ -23,7 +24,7 @@ brew 'curl'
 brew 'awk'
 brew 'nginx'
 brew 'dnsmasq'
-brew 'php70', args: ['with-gmp', 'without-apache', 'homebrew-apxs', 'with-fpm', 'with-mysql', 'with-postgresql']
+brew 'php70', args: ['with-gmp', 'with-httpd24', 'homebrew-apxs', 'with-fpm', 'with-mysql', 'with-postgresql']
 brew 'docker'
 brew 'docker-compose'
 brew 'docker-machine'
@@ -38,6 +39,9 @@ brew 'youtube-dl'
 brew 'yarn'
 brew 'zplug'
 brew 'gpg'
+brew 'sudolikeaboss'
+brew 'terminal-notifier'
+brew 'highlight'
 
 cask 'alfred'
 cask 'google-chrome'

@@ -32,7 +32,7 @@
    untracked = cyan
 [merge]
    log = true
-   tool = Kaleidoscope
+	tool = code
 [repack]
    usedeltabaseoffset = true # >git 1.5
 [alias]
@@ -117,3 +117,6 @@
 [user]
 	name = tdeekens
 	email = nerd@tdeekens.name
+	signingkey = 18CC666C
+[commit]
+	gpgsign = true
