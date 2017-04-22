@@ -120,3 +120,5 @@
 	signingkey = 18CC666C
 [commit]
 	gpgsign = true
+[sequence]
+	editor = rebase-editor
