@@ -69,6 +69,7 @@
    co = !git checkout
    staash = !git stash --include-untracked
    cp = !git cherry-pick
+   adds = !git add $(git ls-files --other --modified --exclude-standard | fzf -m)
 [diff "word"]
    textconv = strings
 [diff "pdf"]
