@@ -46,8 +46,8 @@
    acm = !git add --update && git commit -m
    aacm = !git add --all && git commit -m
    ps = !git push origin HEAD
-   ps-f = !git push --force
-   ps-p = !git push --force-with-lease
+   ps-f = !git push --force-with-lease
+   ps-ff = !git push --force
    ps-l = !git push && git ftp push
    ps-all = !git push --recurse-submodules=on-demand
    pl = !git pull
@@ -68,6 +68,7 @@
    rs = !git rebase --skip
    co = !git checkout
    staash = !git stash --include-untracked
+   cp = !git cherry-pick
 [diff "word"]
    textconv = strings
 [diff "pdf"]
@@ -112,8 +113,6 @@
 	autoupdate = true
 [status]
 	showUntrackedFiles = all
-[gpg]
-	program = /usr/local/bin/gpg1
 [user]
 	name = tdeekens
 	email = nerd@tdeekens.name

@@ -5,7 +5,6 @@ zplug "~/.oh-my-zsh/plugins", use:umsicht.plugin.zsh, from:local
 zplug mafredri/zsh-async, from:github
 zplug psprint/history-search-multi-word, from:github
 zplug lukechilds/zsh-nvm
-zplug marzocchi/zsh-notify
 
 zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
@@ -20,7 +19,8 @@ zplug plugins/git-it-on, from:oh-my-zsh
 
 zplug zsh-users/zsh-autosuggestions
 zplug zsh-users/zsh-completions
-zplug zsh-users/zsh-syntax-highlighting, defer:2
+zplug tysonwolker/iterm-tab-colors
+zplug zdharma/fast-syntax-highlighting
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "

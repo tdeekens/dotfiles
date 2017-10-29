@@ -26,3 +26,8 @@ else
 fi
 
 source ~/.zplug
+
+export PATH="$HOME/.yarn/bin:$PATH"
+
+# added by travis gem
+[ -f /Users/tdeekens/.travis/travis.sh ] && source /Users/tdeekens/.travis/travis.sh
