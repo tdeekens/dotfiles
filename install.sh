@@ -13,6 +13,8 @@ mkdir -p ~/.nvm
 echo "› wget"
 wget --quiet https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim > ~/.vim/colors/solarized.vim
 
+echo "› fzf"
+$(brew --prefix)/opt/fzf/install
 
 # Run setting up osx settings
 echo "› ./.osx"
