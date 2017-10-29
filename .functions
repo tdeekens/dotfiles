@@ -54,16 +54,6 @@ function phpserver() {
 	php -S "${ip}:${port}";
 }
 
-# Call as in github user repo
-github() {
-  git init
-  git add .
-  git commit -am "init"
-  git remote add origin git@github.com:$1/$2.git
-  curl -u 'USER' https://api.github.com/orgs/$1/repos -d "{\"name\":\"$2\"}"
-  git push -u origin master
-}
-
 pretty() { pygmentize -f terminal $* | less -R }
 
 killp() {

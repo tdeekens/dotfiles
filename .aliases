@@ -74,7 +74,7 @@ alias fuck='$(thefuck $(fc -ln -1))'
 alias less='less -m -N -g -i -J --line-numbers --underline-special'
 alias more='less'
 
-# Use "highlight" in place of "cat"
-alias cat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style zenburn"
+alias hcat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style zenburn"
 
 alias history='fc -il 1 | less'
+alias gh='gitit'
