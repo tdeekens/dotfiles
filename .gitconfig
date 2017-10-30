@@ -64,12 +64,12 @@
    today = log --since=midnight --author='tdeekens' --oneline
    dn = !git clone --depth 1
    r-mb = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
+   rm= !git rebase origin/master -i
    rc = !git rebase --continue
    rs = !git rebase --skip
    co = !git checkout
    staash = !git stash --include-untracked
    cp = !git cherry-pick
-   adds = !git add $(git ls-files --other --modified --exclude-standard | fzf -m)
 [diff "word"]
    textconv = strings
 [diff "pdf"]

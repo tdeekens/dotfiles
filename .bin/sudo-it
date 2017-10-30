@@ -1,0 +1,11 @@
+#!/bin/bash
+
+main() {
+   if [[ $# == 0 ]]; then
+      sudo $(history -p '!!')
+   else
+      sudo "$@"
+   fi
+}
+
+main "$@"

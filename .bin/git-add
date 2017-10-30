@@ -1,0 +1,7 @@
+#!/bin/bash
+
+main() {
+  git add $(git ls-files --other --modified --exclude-standard | fzf -m)
+}
+
+main "$@"

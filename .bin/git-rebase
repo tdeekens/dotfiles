@@ -1,0 +1,7 @@
+#!/bin/bash
+
+main() {
+  git rebase -i $(git-sha)^
+}
+
+main "$@"
