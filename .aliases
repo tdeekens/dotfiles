@@ -81,4 +81,4 @@ alias gh='gitit'
 
 alias ga='git-add'
 alias grc='git-rebase'
-alias gco'git-checkout'
+alias gco='git-checkout'
