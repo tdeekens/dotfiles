@@ -1,0 +1,7 @@
+#!/bin/bash
+
+main() {
+  git commit --fixup $(git-sha)
+}
+
+main "$@"
