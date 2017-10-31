@@ -35,3 +35,5 @@ ENHANCD_FILTER=fzf
 export ENHANCD_FILTER
 
 export FZF_DEFAULT_OPTS='--multi --extended --reverse'
+
+export PATH="$HOME/.yarn/bin:$PATH"

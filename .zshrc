@@ -11,7 +11,7 @@ plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
-for file in ~/.{bash_profile,bash_prompt,exports,aliases,functions}; do
+for file in ~/.{bash_profile,bash_prompt,exports}; do
   [ -r "$file" ] && source "$file"
 done
 
@@ -27,7 +27,9 @@ fi
 
 source ~/.zplug
 
-export PATH="$HOME/.yarn/bin:$PATH"
+for file in ~/.{aliases,functions}; do
+  [ -r "$file" ] && source "$file"
+done
 
 # added by travis gem
 [ -f /Users/tdeekens/.travis/travis.sh ] && source /Users/tdeekens/.travis/travis.sh
