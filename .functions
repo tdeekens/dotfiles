@@ -1,19 +1,15 @@
 g() {
    if [ "$1" = "adds" ]; then
       git-add
-   fi
-   if [ "$1" = "fu" ]; then
+   elif [ "$1" = "fu" ]; then
       git-fixup
-   fi
-   if [ "$1" = "sha" ]; then
+   elif [ "$1" = "sha" ]; then
       git-sha
-   fi
-   if [ "$1" = "sb" ]; then
+   elif [ "$1" = "sb" ]; then
       git-switch-branch
-   fi
-   if [ "$1" = "rbs" ]; then
+   elif [ "$1" = "rbs" ]; then
       git-rebase
+   else
+      command git "$@"
    fi
-
-   command git "$@"
 }
