@@ -69,6 +69,7 @@
    rs = !git rebase --skip
    co = !git checkout
    staash = !git stash --include-untracked
+   unstage = !git reset
    cp = !git cherry-pick
 [diff "word"]
    textconv = strings
