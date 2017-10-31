@@ -78,8 +78,4 @@ alias hcat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --
 
 alias history='fc -il 1 | less'
 alias gh='gitit'
-
-alias g_a='git-add'
-alias g_rc='git-rebase'
-alias g_co='git-checkout'
-alias g_fu='git-fixup'
+alias j='z'
