@@ -11,7 +11,7 @@ plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
-for file in ~/.{.bash_profile,bash_prompt,exports,aliases}; do
+for file in ~/.{bash_profile,bash_prompt,exports,aliases,functions}; do
   [ -r "$file" ] && source "$file"
 done
 
