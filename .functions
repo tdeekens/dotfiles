@@ -8,8 +8,8 @@ g() {
    if [ "$1" = "sha" ]; then
       git-sha
    fi
-   if [ "$1" = "co" ]; then
-      git-checkout
+   if [ "$1" = "sb" ]; then
+      git-switch-branch
    fi
    if [ "$1" = "rbs" ]; then
       git-rebase
