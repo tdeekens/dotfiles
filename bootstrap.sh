@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DOTFILES_ROOT=$(pwd -P)
-DOTFILES=(.aliases .bash_prompt .bashrc .curlrc .editorconfig .exports .zshrc .zplug .gitattributes .gitconfig .gitignore .inputrc .oh-my-zsh/plugins/umsicht.plugin.zsh .oh-my-zsh/themes/tdeekens.zsh-theme .osx .vimrc .wgetrc Brewfile .bin)
+DOTFILES=(.aliases .bash_prompt .bashrc .curlrc .editorconfig .exports .zshrc .zplug .gitattributes .gitconfig .gitignore .inputrc .oh-my-zsh/plugins/umsicht.plugin.zsh .oh-my-zsh/themes/tdeekens.zsh-theme .osx .vimrc .wgetrc Brewfile .bin .keybindings)
 DOTFILES_ROOT=$(pwd -P)
 
 set -e

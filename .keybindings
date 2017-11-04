@@ -1,0 +1,2 @@
+bindkey -s '^b' 'git switch\n'
+bindkey -s '^s' 'git stage\n'

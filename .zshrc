@@ -27,7 +27,7 @@ fi
 
 source ~/.zplug
 
-for file in ~/.{aliases,functions}; do
+for file in ~/.{aliases,functions,keybindings}; do
   [ -r "$file" ] && source "$file"
 done
 
