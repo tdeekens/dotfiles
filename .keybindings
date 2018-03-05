@@ -1,2 +1,3 @@
 bindkey -s '^b' 'git switch\n'
 bindkey -s '^s' 'git stage\n'
+bindkey -s '^P' fuzzy-search-and-edit

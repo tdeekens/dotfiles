@@ -17,13 +17,13 @@ export NPM_PATH=/usr/local/share/npm/bin
 export RBENV_PATH=~/.rbenv/shims
 export ZPLUG_HOME=/usr/local/opt/zplug
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export GO_PATH=$HOME/Development/go
-export GO_BIN_PATH=$GO_PATH/bin
+export GOPATH=$HOME/Development/go
+export GOBIN=$GOPATH/bin
 export DOTFILES_BIN_PATH=~/.bin
 
 BIN_PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin
 
-export PATH=$DOTFILES_BIN_PATH:$RBENV_PATH:$BIN_PATH:$NPM_PATH:$GO_BIN_PATH
+export PATH=$DOTFILES_BIN_PATH:$RBENV_PATH:$BIN_PATH:$NPM_PATH:$GOBIN
 
 export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --force --style solarized-light"
 export LESS=" -R"
@@ -37,3 +37,5 @@ export ENHANCD_FILTER
 export FZF_DEFAULT_OPTS='--multi --extended --reverse'
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+export GPG_TTY=`tty`

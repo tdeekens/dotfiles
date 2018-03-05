@@ -10,3 +10,4 @@ cgi-bin
 usage
 .npmrc
 .npm_cache
+.import-helper-data

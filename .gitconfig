@@ -118,7 +118,7 @@
 [user]
 	name = tdeekens
 	email = nerd@tdeekens.name
-	signingkey = 18CC666C
+	signingkey = 96F2AF30
 [commit]
 	gpgsign = true
 [sequence]

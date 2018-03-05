@@ -18,6 +18,7 @@ zplug plugins/fasd, from:oh-my-zsh
 zplug zsh-users/zsh-autosuggestions
 zplug zsh-users/zsh-completions
 zplug tysonwolker/iterm-tab-colors
+zplug kovetskiy/zsh-add-params
 zplug zdharma/fast-syntax-highlighting
 zplug peterhurford/git-it-on.zsh
 zplug b4b4r07/enhancd, use:init.sh
