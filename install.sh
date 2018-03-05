@@ -16,6 +16,9 @@ wget --quiet https://raw.githubusercontent.com/altercation/vim-colors-solarized/
 echo "› fzf"
 $(brew --prefix)/opt/fzf/install
 
+echo "› pyenv"
+pyenv install 3.5.0
+
 # Run setting up osx settings
 echo "› ./.osx"
 ./.osx

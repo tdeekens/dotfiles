@@ -43,6 +43,7 @@ brew 'highlight'
 brew 'kubectl'
 brew 'fzf'
 brew 'fasd'
+brew 'pyenv'
 
 cask 'alfred'
 cask 'google-chrome'
