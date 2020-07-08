@@ -8,6 +8,8 @@
    attributesfile = ~/.gitattributes
    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
    autocrlf = input
+	commitGraph = true
+   pager = delta --plus-color="#012800" --minus-color="#340001" --theme='base16'
 [apply]
    whitespace = fix
 [color]
@@ -52,7 +54,8 @@
    ps-all = !git push --recurse-submodules=on-demand
    pl = !git pull
    pl-s = !git stash && git pull --rebase && git stash pop
-   amend = commit --amend -C HEAD
+   fam = "!f() { git add . && git amend && git ps-f; }; f"
+   amend = commit --amend --no-edit
    undo = reset --soft HEAD
    l = !git log --graph --decorate --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
    ll = log --stat --abbrev-commit
@@ -86,6 +89,7 @@
 [diff]
    tool = Kaleidoscope
    algorithm = patience
+	colorMoved = zebra
 [difftool]
    prompt = false
 [mergetool "Kaleidoscope"]
@@ -107,9 +111,6 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
-[pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
 [rerere]
 	enabled = true
 	autoupdate = true
@@ -117,9 +118,17 @@
 	showUntrackedFiles = all
 [user]
 	name = tdeekens
-	email = nerd@tdeekens.name
-	signingkey = 96F2AF30
+	email = tobias.deekens@commercetools.com
+	signingkey = 15681F68
 [commit]
-	gpgsign = true
+	gpgsign = false
 [sequence]
 	editor = rebase-editor
+[pull]
+	rebase = true
+[branch]
+	sort = -authordate
+[checkout]
+	defaultRemote = origin
+[interactive]
+   diffFilter = delta --color-only
