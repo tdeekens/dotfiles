@@ -77,7 +77,7 @@ alias more='less'
 alias hcat="highlight $1 --out-format xterm256 --line-numbers --quiet --force --style zenburn"
 
 alias history='fc -il 1 | less'
-alias j='z'
 
 alias lsa='exa -lah'
 alias ls='exa -l'
+alias g='git'

@@ -1,0 +1,38 @@
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+zinit snippet OMZP::brew
+zinit snippet OMZP::web-search
+zinit snippet OMZP::fasd
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::yarn
+zinit snippet OMZP::colored-man-pages
+
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light kovetskiy/zsh-add-params
+zinit light zdharma/fast-syntax-highlighting
+zinit light starship/starship
+
+zinit ice wait lucid src"init.sh"
+zinit light b4b4r07/enhancd
+
+zinit ice wait lucid src"autopair.zsh"
+zinit light hlissner/zsh-autopair
+
+zinit ice wait"1" lucid
+zinit light wfxr/forgit
+
+zinit ice wait"1" lucid
+zinit light "changyuheng/fz"
+
+zinit ice lucid src"z.sh"
+zinit light rupa/z
+
+zinit ice wait"3" lucid
+zinit light bonnefoa/kubectl-fzf

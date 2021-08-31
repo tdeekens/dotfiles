@@ -12,3 +12,4 @@ usage
 .npm_cache
 .import-helper-data
 .vscode/settings.json
+.metals

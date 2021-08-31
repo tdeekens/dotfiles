@@ -74,6 +74,7 @@
    staash = !git stash --include-untracked
    unstage = !git reset
    cp = !git cherry-pick
+   fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
 [diff "word"]
    textconv = strings
 [diff "pdf"]
@@ -119,9 +120,9 @@
 [user]
 	name = tdeekens
 	email = tobias.deekens@commercetools.com
-	signingkey = 15681F68
+	signingkey = A6716D21535E2771
 [commit]
-	gpgsign = false
+	gpgsign = true
 [sequence]
 	editor = rebase-editor
 [pull]
@@ -132,3 +133,10 @@
 	defaultRemote = origin
 [interactive]
    diffFilter = delta --color-only
+[init]
+	defaultBranch = main
+[maintenance]
+	repo = /Users/tdeekens/Development/merchant-center-frontend
+[delta]
+   features = side-by-side line-numbers decorations
+   whitespace-error-style = 22 reverse

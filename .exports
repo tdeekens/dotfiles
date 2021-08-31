@@ -14,7 +14,6 @@ export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export NVM_DIR="$HOME/.nvm"
 export NPM_PATH=/usr/local/share/npm/bin
 export RBENV_PATH=~/.rbenv/shims
-export ZPLUG_HOME=/usr/local/opt/zplug
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export GOPATH=$HOME/Development/go
 export GOBIN=$GOPATH/bin
@@ -22,10 +21,12 @@ export DOTFILES_BIN_PATH=$HOME/.bin
 export HELM_BIN_PATH=$HOME/.helmenv/bin
 export KREW_PATH="${KREW_ROOT:-$HOME/.krew}/bin:"
 export CARGO_PATH=$HOME/.cargo/bin
+export PYENV_ROOT=$HOME/.pyenv
+export PYENV_PATH=$PYENV_ROOT/bin
 
 BIN_PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin
 
-export PATH=$DOTFILES_BIN_PATH:$RBENV_PATH:$BIN_PATH:$NPM_PATH:$GOBIN:$HELM_BIN_PATH:$KREW_PATH:$CARGO_PATH
+export PATH=$DOTFILES_BIN_PATH:$RBENV_PATH:$BIN_PATH:$NPM_PATH:$GOBIN:$HELM_BIN_PATH:$KREW_PATH:$CARGO_PATH:PYENV_PATH
 
 export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --force --style solarized-light"
 export LESS=" -R"
@@ -47,3 +48,9 @@ export GPG_TTY=`tty`
 export LANG=en_US.UTF-8
 
 export PATH="$(pwd)/git-fuzzy/bin:$PATH"
+
+export CIRCLE_TOKEN=a30547db4c2bdb1dcc23190091d84d710ae2a446
+
+export HELM_V2_HOME=~/.helm2
+export HELM_V3_CONFIG=~/.helm3
+export HELM_V3_DATA=~/.helm3

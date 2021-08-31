@@ -3,11 +3,6 @@ ZSH=$HOME/.oh-my-zsh
 
 autoload -U compinit && compinit
 
-ZSH_THEME="typewritten"
-export TYPEWRITTEN_CURSOR="beam"
-export TYPEWRITTEN_PROMPT_LAYOUT="singleline_verbose"
-export TYPEWRITTEN_SYMBOL="»"
-
 plugins=()
 
 source $ZSH/oh-my-zsh.sh
@@ -26,42 +21,43 @@ else
   eval $(gpg-agent --daemon ~/.gnupg/.gpg-agent-info)
 fi
 
-source ~/.zplug
-
 for file in ~/.{aliases,functions,keybindings}; do
   [ -r "$file" ] && source "$file"
 done
 
-# added by travis gem
-[ -f /Users/tdeekens/.travis/travis.sh ] && source /Users/tdeekens/.travis/travis.sh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-eval "`fnm env --multi --use-on-cd`"
+eval "`fnm env --use-on-cd`"
 
 export PATH="$HOME/.yarn/bin:$PATH"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/tdeekens/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/tdeekens/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/$USER/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/$USER/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/tdeekens/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/tdeekens/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/$USER/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/$USER/google-cloud-sdk/completion.zsh.inc'; fi
 
 # opam configuration
-test -r /Users/tdeekens/.opam/opam-init/init.zsh && . /Users/tdeekens/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+test -r /Users/$USER/.opam/opam-init/init.zsh && . /Users/$USER/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/usr/local/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
-#else
-#    if [ -f "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-#        . "/usr/local/Caskroom/miniconda/base/etc/profile.d/conda.sh"
-#    else
-#        export PATH="/usr/local/Caskroom/miniconda/base/bin:$PATH"
-#    fi
-#fi
-#unset __conda_setup
-# <<< conda initialize <<<
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+### End of Zinit's installer chunk
+
+source ~/.zinitrc
+
+eval "$(starship init zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /Users/$USER/.config/broot/launcher/bash/br
+
+eval "$(fasd --init auto)"

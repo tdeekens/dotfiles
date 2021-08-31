@@ -22,3 +22,6 @@ pyenv install 3.5.0
 # Run setting up osx settings
 echo "› ./.osx"
 ./.osx
+
+echo "› zinit"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
