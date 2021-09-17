@@ -35,7 +35,7 @@ export ZSH=$HOME/.oh-my-zsh
 export PATH="/usr/local/opt/scala@2.12/bin:$PATH"
 export JAVA_HOME=$(/usr/libexec/java_home -v1.8.0);
 
-ENHANCED_FILTER=fzf
+export ENHANCED_FILTER=fzf
 export ENHANCD_FILTER
 
 export FZF_DEFAULT_OPTS='--multi --extended --layout=reverse'

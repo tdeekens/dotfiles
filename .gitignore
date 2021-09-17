@@ -13,3 +13,4 @@ usage
 .import-helper-data
 .vscode/settings.json
 .metals
+.secrets
