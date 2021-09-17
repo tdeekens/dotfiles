@@ -8,6 +8,8 @@ function um() {
     esac
   done
 
+  echo "Folder: $folder";
+
   if [[ $action = "dev" ]]; then
      echo "Uploading project: '$project' into development area.";
 
