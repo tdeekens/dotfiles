@@ -11,7 +11,7 @@ function um() {
   if [[ $action = "dev" ]]; then
      echo "Uploading project: '$project' into development area.";
 
-     cd "$project_path$project" || exit;
+     cd "$project_path$project";
 
      if [ -n "$folder" ]; then
        echo "Only changes in folder: $folder will be uploaded."
@@ -24,7 +24,7 @@ function um() {
   elif [[ $action = "push" ]]; then
      echo "Uploading project: '$project' into development area and pushing it live.";
 
-     cd "$project_path$project" || exit;
+     cd "$project_path$project";
 
      aacm=$(git add --all && git commit -m "Automatic push to dev and production");
      pom=$(git push origin master);
@@ -32,7 +32,7 @@ function um() {
   elif [[ $action = "down" ]]; then
      echo "Downloading project: '$project' locally.";
 
-     cd "$project_path" || exit;
+     cd "$project_path";
 
      clone=$(git clone ssh://um.dev/git/"$project".git);
 
@@ -41,7 +41,7 @@ function um() {
   elif [[ $action = "update" ]]; then
      echo "Updating project: '$project' locally.";
 
-     cd "$project_path$project" || exit;
+     cd "$project_path$project";
 
      pull=$(git pull origin);
 
@@ -52,7 +52,7 @@ function um() {
 
      sshScript=$(ssh um.dev 'sh /www/htdocs/v080275/scripts/stage-project.sh' "$project" dev);
 
-     cd "$project_path$project" || exit;
+     cd "$project_path$project";
 
      aacm=$(git add --all && git commit -m "Automatic init to dev and production");
      pom=$(git push origin master);
@@ -62,13 +62,13 @@ function um() {
 
      sshScript=$(ssh um.dev 'sh /www/htdocs/v080275/scripts/bootstrap-project.sh' "$project");
 
-     cd "$project_path" || exit;
+     cd "$project_path";
 
      clone=$(git clone ssh://um.dev/git/"$project".git);
 
      open_editor=$($EDITOR "$project");
   elif [[ $action = "config" ]]; then
-     cd "$project_path$project" || exit;
+     cd "$project_path$project";
 
      config=$(git config git-ftp.user "$3" && git config git-ftp.password "$4" && git config git-ftp.url "$5");
 
@@ -76,19 +76,19 @@ function um() {
   elif [[ $action = "update-all" ]]; then
      echo "Updating *all* local projects.";
 
-     cd "$project_path" || exit;
+     cd "$project_path";
 
      for project_dir in $project_path*
      do
         echo "Updating project '$project_dir' locally.";
 
-        cd "$project_dir" || exit;
+        cd "$project_dir";
         pull=$(git pull origin master);
      done
   elif [[ $action = "work" ]]; then
      echo "Setting up project '$project' to work on '$option' version.";
 
-     cd "$project_path$project" || exit;
+     cd "$project_path$project";
 
      fa=$(git pull --all);
 
@@ -105,19 +105,19 @@ function um() {
 
      rm -rf "$project_path$project";
 
-     cd "$project_path" || exit;
+     cd "$project_path";
 
      clone=$(git clone ssh://um.dev/git/"$project".git);
   elif [[ $action = "revert" ]]; then
      echo "Reverting last made changes on: '$project'!";
 
-     cd "$project_path$project" || exit;
+     cd "$project_path$project";
 
      checkout=$(git checkout -f);
   elif [[ $action = "browse" ]]; then
      open "$local_server/$project";
   elif [[ $action = "status" ]]; then
-     cd "$project_path$project" || exit;
+     cd "$project_path$project";
      echo "============= Last changes in dev =============="
      echo "# Change from: "
      git rev-list --format=format:'%cn %ci' --max-count=1 $(git rev-parse origin/HEAD)
