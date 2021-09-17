@@ -1,20 +1,13 @@
 function um() {
   local action=$1; project=$2; option=$3; project_path=$UM_PROJECT_PATH; local_server=$UM_LOCAL_SERVER
 
-  while getopts f: flag
-  do
-    case "${flag}" in
-      f) folder=${OPTARG};;
-    esac
-  done
-
   if [[ $action = "dev" ]]; then
      echo "Uploading project: '$project' into development area.";
 
      cd "$project_path$project";
 
-     if [ -n "$folder" ]; then
-       echo "Only changes in folder: $folder will be uploaded."
+     if [ -n "$option" ]; then
+       echo "Only changes in folder: $option will be uploaded."
        aacm=$(git add $folder && git commit -m "Automatic push to dev");
      else
        aacm=$(git add --all && git commit -m "Automatic push to dev");
