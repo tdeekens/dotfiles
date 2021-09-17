@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 
 autoload -U compinit && compinit
 
-plugins=()
+plugins=(umsicht)
 
 source $ZSH/oh-my-zsh.sh
 
