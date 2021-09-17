@@ -27,8 +27,6 @@ done
 
 eval "`fnm env --use-on-cd`"
 
-export PATH="$HOME/.yarn/bin:$PATH"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/$USER/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/$USER/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -61,3 +59,5 @@ eval "$(starship init zsh)"
 source /Users/$USER/.config/broot/launcher/bash/br
 
 eval "$(fasd --init auto)"
+
+. "$HOME/.cargo/env"
