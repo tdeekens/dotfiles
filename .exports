@@ -49,8 +49,6 @@ export LANG=en_US.UTF-8
 
 export PATH="$(pwd)/git-fuzzy/bin:$PATH"
 
-export CIRCLE_TOKEN=a30547db4c2bdb1dcc23190091d84d710ae2a446
-
 export HELM_V2_HOME=~/.helm2
 export HELM_V3_CONFIG=~/.helm3
 export HELM_V3_DATA=~/.helm3
