@@ -36,3 +36,5 @@ zinit light rupa/z
 
 zinit ice wait"3" lucid
 zinit light bonnefoa/kubectl-fzf
+
+zinit light Aloxaf/fzf-tab
