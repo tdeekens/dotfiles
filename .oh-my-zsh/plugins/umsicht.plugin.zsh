@@ -1,14 +1,12 @@
 function um() {
   local action=$1; project=$2; option=$3; project_path=$UM_PROJECT_PATH; local_server=$UM_LOCAL_SERVER
 
-  while getopts f flag
+  while getopts f: flag
   do
     case "${flag}" in
       f) folder=${OPTARG};;
     esac
   done
-
-  echo "Folder: $folder";
 
   if [[ $action = "dev" ]]; then
      echo "Uploading project: '$project' into development area.";
