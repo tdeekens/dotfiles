@@ -8,7 +8,7 @@ function um() {
 
      if [ -n "$option" ]; then
        echo "Only changes in folder: $option will be uploaded."
-       aacm=$(git add $folder && git commit -m "Automatic push to dev");
+       aacm=$(git add $option && git commit -m "Automatic push to dev");
      else
        aacm=$(git add --all && git commit -m "Automatic push to dev");
      fi
