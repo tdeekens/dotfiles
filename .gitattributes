@@ -1,4 +1,0 @@
-* text=auto
-*.txt text
-*.sln text eol=crlf
-*.zip binary

@@ -4,11 +4,11 @@ Basically for personal backup reasons but obvisouly free to fork, copy, change '
 
 ## Concept
 
-Symlinks all files in this directory in the `boostrap.sh` into your home folder.
+Uses `chezmoi` to manage all dotfiles.
 
 ## Installation
 
-* Install homebrew and oh-my-zsh
-* Clone repository to places
-* Run `sh install.sh`
-* Run `sh bootstrap.sh`
+* Install `chezmoi` using e.g. `brew install chezmoi`
+* Run `chezmoi init https://github.com/tdeekens/dotfiles.git`
+* Run `chezmoi diff` to view what would be changed
+* Run `chezmoi apply`

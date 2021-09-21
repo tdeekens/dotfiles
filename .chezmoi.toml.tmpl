@@ -1,0 +1,7 @@
+{{- $email := promptString "email" -}}
+{{- $signingkey := promptString "signingkey" -}}
+{{- $hostname := promptString "hostname" -}}
+[data]
+    email = {{ $email | quote }}
+    signingkey = {{ $signingkey | quote }}
+    hostname = {{ $hostname | quote }}

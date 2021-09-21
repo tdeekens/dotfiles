@@ -1,3 +1,0 @@
-location ~ /\.ht {
-  deny all;
-}
