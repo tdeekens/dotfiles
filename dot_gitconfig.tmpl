@@ -136,7 +136,7 @@
 [init]
 	defaultBranch = main
 [maintenance]
-   {{- if ne .hostname "commercetools-mpb" }}
+   {{- if eq .hostname "commercetools-mpb" }}
 	repo = /Users/tdeekens/Development/merchant-center-frontend
    {{- end }}
 [delta]
