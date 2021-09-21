@@ -1,6 +1,6 @@
 [github]
    name = suǝʞǝǝpʇ
-   email = {{ .chezmoi.email }}
+   email = {{ .email }}
 [core]
    legacyheaders = false # >git 1.5
    quotepath = false
@@ -119,8 +119,8 @@
 	showUntrackedFiles = all
 [user]
 	name = tdeekens
-	email = {{ .chezmoi.email }}
-	signingkey = {{ .chezmoi.signingkey }}
+	email = {{ .email }}
+	signingkey = {{ .signingkey }}
 [commit]
 	gpgsign = true
 [sequence]
@@ -136,7 +136,7 @@
 [init]
 	defaultBranch = main
 [maintenance]
-   {{- if ne .chezmoi.hostname "commercetools-mpb" }}
+   {{- if ne .hostname "commercetools-mpb" }}
 	repo = /Users/tdeekens/Development/merchant-center-frontend
    {{- end }}
 [delta]
