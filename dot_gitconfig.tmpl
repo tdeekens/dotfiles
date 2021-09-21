@@ -1,0 +1,144 @@
+[github]
+   name = suǝʞǝǝpʇ
+   email = {{ .chezmoi.email }}
+[core]
+   legacyheaders = false # >git 1.5
+   quotepath = false
+	excludesfile = ~/.gitignore
+   attributesfile = ~/.gitattributes
+   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
+   autocrlf = input
+	commitGraph = true
+   pager = delta --plus-color="#012800" --minus-color="#340001" --theme='base16'
+[apply]
+   whitespace = fix
+[color]
+   ui = auto
+[color "branch"]
+   current = yellow reverse
+   local = yellow
+   remote = green
+[color "diff"]
+   meta = yellow bold
+   frag = magenta bold
+   old = red bold
+   new = green bold
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "status"]
+   added = yellow
+   changed = green
+   untracked = cyan
+[merge]
+   log = true
+	tool = code
+[repack]
+   usedeltabaseoffset = true # >git 1.5
+[alias]
+   aliases = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+   s = status -sb
+   a = !git add . && git status
+   au = !git add -u . && git status
+   aa = !git add . && git add -u . && git status
+   c = commit
+   cm = commit -m
+   acm = !git add --update && git commit -m
+   aacm = !git add --all && git commit -m
+   ps = !git push origin HEAD
+   ps-f = !git push --force-with-lease
+   ps-ff = !git push --force
+   ps-l = !git push && git ftp push
+   ps-all = !git push --recurse-submodules=on-demand
+   pl = !git pull
+   pl-s = !git stash && git pull --rebase && git stash pop
+   fam = "!f() { git add . && git amend && git ps-f; }; f"
+   amend = commit --amend --no-edit
+   undo = reset --soft HEAD
+   l = !git log --graph --decorate --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
+   ll = log --stat --abbrev-commit
+   d = diff --color-words
+   ds = diff --color-words --staged
+   dn-sub = !git pull "$@" && git submodule update --init --recursive
+   undo-push = !git push -f origin HEAD^:master
+   normalize-eof = !git rm --cached -r . && git reset --hard && git add . && git commit
+   today = log --since=midnight --author='tdeekens' --oneline
+   dn = !git clone --depth 1
+   r-mb = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
+   rm= !git rebase origin/master -i
+   rc = !git rebase --continue
+   rs = !git rebase --skip
+   co = !git checkout
+   staash = !git stash --include-untracked
+   unstage = !git reset
+   cp = !git cherry-pick
+   fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+[diff "word"]
+   textconv = strings
+[diff "pdf"]
+   textconv = pdf2txt
+[diff "plist"]
+   textconv = strings
+[diff "odf"]
+   textconv = odt2txt
+[credential]
+	helper = osxkeychain
+[difftool "Kaleidoscope"]
+   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+   tool = Kaleidoscope
+   algorithm = patience
+	colorMoved = zebra
+[difftool]
+   prompt = false
+[mergetool "Kaleidoscope"]
+   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+   trustExitCode = true
+[mergetool]
+   prompt = false
+	keepBackup = true
+[push]
+   default = upstream
+[url "https://github.com/"]
+   insteadOf = git@github.com:
+[url "https://"]
+	insteadOf = git://
+[rebase]
+	autostash = true
+   autosquash = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[status]
+	showUntrackedFiles = all
+[user]
+	name = tdeekens
+	email = {{ .chezmoi.email }}
+	signingkey = {{ .chezmoi.signingkey }}
+[commit]
+	gpgsign = true
+[sequence]
+	editor = rebase-editor
+[pull]
+	rebase = true
+[branch]
+	sort = -authordate
+[checkout]
+	defaultRemote = origin
+[interactive]
+   diffFilter = delta --color-only
+[init]
+	defaultBranch = main
+[maintenance]
+   {{- if ne .chezmoi.hostname "commercetools-mpb" }}
+	repo = /Users/tdeekens/Development/merchant-center-frontend
+   {{- end }}
+[delta]
+   features = side-by-side line-numbers decorations
+   whitespace-error-style = 22 reverse

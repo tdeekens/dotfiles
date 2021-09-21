@@ -1,0 +1,5 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'ntk148v/vim-horizon'
+
+call plug#end()

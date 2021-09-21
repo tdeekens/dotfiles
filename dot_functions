@@ -1,0 +1,24 @@
+g() {
+   if [ "$1" = "stage" ]; then
+      git-add
+   elif [ "$1" = "fak" ]; then
+      git-fixup
+   elif [ "$1" = "sha" ]; then
+      git-sha
+   elif [ "$1" = "switch" ]; then
+      git-switch-branch
+   elif [ "$1" = "wormhole" ]; then
+      git-rebase
+   else
+      command git "$@"
+   fi
+}
+
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
