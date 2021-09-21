@@ -80,4 +80,3 @@ alias history='fc -il 1 | less'
 
 alias lsa='exa -lah'
 alias ls='exa -l'
-alias g='git'
