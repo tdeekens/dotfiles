@@ -8,6 +8,7 @@ Uses `chezmoi` to manage all dotfiles.
 
 ## Installation
 
+* Run the `setup.sh`
 * Install `chezmoi` using e.g. `brew install chezmoi`
 * Run `chezmoi init https://github.com/tdeekens/dotfiles.git`
 * Run `chezmoi diff` to view what would be changed
