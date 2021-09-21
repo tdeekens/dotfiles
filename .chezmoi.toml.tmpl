@@ -1,6 +1,18 @@
-{{- $email := promptString "email" -}}
-{{- $signingkey := promptString "signingkey" -}}
-{{- $hostname := promptString "hostname" -}}
+{{- $email := get . "email" -}}
+{{- if not $email -}}
+{{-   $email = promptString "email" -}}
+{{- end -}}
+
+{{- $signingkey := get . "signingkey" -}}
+{{- if not $signingkey -}}
+{{-   $signingkey = promptString "signingkey" -}}
+{{- end -}}
+
+{{- $hostname := get . "hostname" -}}
+{{- if not $hostname -}}
+{{-   $hostname = promptString "hostname" -}}
+{{- end -}}
+
 [data]
     email = {{ $email | quote }}
     signingkey = {{ $signingkey | quote }}
