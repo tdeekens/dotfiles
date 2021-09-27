@@ -50,6 +50,7 @@ brew 'wrk'
 brew 'yarn'
 brew 'youtube-dl'
 brew 'broot'
+brew 'zoxide'
 
 cask 'appcleaner'
 cask 'firefox'

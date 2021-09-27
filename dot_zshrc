@@ -61,3 +61,5 @@ source /Users/$USER/.config/broot/launcher/bash/br
 eval "$(fasd --init auto)"
 
 . "$HOME/.cargo/env"
+
+eval "$(zoxide init zsh)"
