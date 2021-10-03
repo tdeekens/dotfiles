@@ -54,6 +54,7 @@ autoload -Uz _zinit
 source ~/.zinitrc
 
 eval "$(starship init zsh)"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source /Users/$USER/.config/broot/launcher/bash/br
