@@ -16,3 +16,10 @@ brew bundle --file ~/.brewfiles/Casks
 
 echo "Installing fzf"
 $(brew --prefix)/opt/fzf/install
+
+echo "Setting up dotfiles with chezmoi"
+
+pushd ~
+chezmoi init
+chezmoi apply -v
+popd
