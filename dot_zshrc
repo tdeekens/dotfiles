@@ -64,3 +64,4 @@ eval "$(fasd --init auto)"
 . "$HOME/.cargo/env"
 
 eval "$(zoxide init zsh)"
+eval "$(rbenv init - zsh)"

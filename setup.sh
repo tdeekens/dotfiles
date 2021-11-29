@@ -1,11 +1,18 @@
 #!/bin/bash
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo "Installing homebrew"
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo "Setting up vim colors"
 wget --quiet https://raw.githubusercontent.com/altercation/vim-colors-solarized/master/colors/solarized.vim > ~/.vim/colors/solarized.vim
-pyenv install 3.5.0
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
-brew bundle
+echo "Installing zinit"
+sh -c "$(curl -fsSL https://git.io/zinit-install)"
 
+echo "Installing Brewfiles"
+brew bundle --file ~/.brewfiles/Development
+brew bundle --file ~/.brewfiles/Casks
+
+echo "Installing fzf"
 $(brew --prefix)/opt/fzf/install
