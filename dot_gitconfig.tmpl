@@ -9,7 +9,7 @@
    whitespace = fix,space-before-tab,tab-in-indent,trailing-space
    autocrlf = input
 	commitGraph = true
-   pager = delta --plus-color="#012800" --minus-color="#340001" --theme='base16'
+   pager = delta
 [apply]
    whitespace = fix
 [color]
@@ -35,6 +35,7 @@
 [merge]
    log = true
 	tool = code
+   conflictstyle = diff3
 [repack]
    usedeltabaseoffset = true # >git 1.5
 [alias]
@@ -90,7 +91,7 @@
 [diff]
    tool = Kaleidoscope
    algorithm = patience
-	colorMoved = zebra
+	colorMoved = default
 [difftool]
    prompt = false
 [mergetool "Kaleidoscope"]
@@ -132,7 +133,7 @@
 [checkout]
 	defaultRemote = origin
 [interactive]
-   diffFilter = delta --color-only
+   diffFilter = delta
 [init]
 	defaultBranch = main
 [maintenance]
@@ -140,5 +141,5 @@
 	repo = /Users/tdeekens/Development/merchant-center-frontend
    {{- end }}
 [delta]
-   features = side-by-side line-numbers decorations
-   whitespace-error-style = 22 reverse
+   side-by-side = true
+   line-numbers = true

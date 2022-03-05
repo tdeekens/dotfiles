@@ -52,3 +52,6 @@ export PATH="$(pwd)/git-fuzzy/bin:$PATH"
 export HELM_V2_HOME=~/.helm2
 export HELM_V3_CONFIG=~/.helm3
 export HELM_V3_DATA=~/.helm3
+
+export UM_LOCAL_SERVER=http://localhost:8080
+export UM_PROJECT_PATH=~/Sites
