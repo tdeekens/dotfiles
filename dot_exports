@@ -23,10 +23,11 @@ export KREW_PATH="${KREW_ROOT:-$HOME/.krew}/bin"
 export CARGO_PATH=$HOME/.cargo/bin
 export PYENV_ROOT=$HOME/.pyenv
 export PYENV_PATH=$PYENV_ROOT/bin
+export ASDF_PATH=$HOME/.asdf/shims
 
 BIN_PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin
 
-export PATH=$DOTFILES_BIN_PATH:$RBENV_PATH:$BIN_PATH:$NPM_PATH:$GOBIN:$HELM_BIN_PATH:$KREW_PATH:$CARGO_PATH:$PYENV_PATH
+-export PATH=$DOTFILES_BIN_PATH:$RBENV_PATH:$BIN_PATH:$NPM_PATH:$GOBIN:$KREW_PATH:$CARGO_PATH:$PYENV_PATH:$ASDF_PATH
 
 export LESSOPEN="| $(which highlight) %s --out-format xterm256 --line-numbers --quiet --force --style solarized-light"
 export LESS=" -R"

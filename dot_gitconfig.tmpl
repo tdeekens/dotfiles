@@ -77,6 +77,7 @@
    cp = !git cherry-pick
    fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
 [diff "word"]
+   mainalias = "!f() { if (git show-ref --verify -q refs/heads/main && !git show-ref --verify -q refs/heads/master); then (git symbolic-ref refs/heads/master refs/heads/main); else (git symbolic-ref refs/heads/main refs/heads/master); fi }; f"
    textconv = strings
 [diff "pdf"]
    textconv = pdf2txt
